@@ -218,7 +218,7 @@ contract WRCoin is StandardToken {
 
   constructor() public {
     uint256 INITIAL_SUPPLY = 12000000 * (10 ** uint256(decimals));
-    totalSupply = INITIAL_SUPPLY;
+    totalSupply_ = INITIAL_SUPPLY;
     balances[msg.sender] = INITIAL_SUPPLY;
   }
 
