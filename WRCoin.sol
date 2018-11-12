@@ -21,21 +21,25 @@ contract ERC20 is ERC20Basic {
 }
 
 /**
- * @title SafeMath
+ * @title SafeMath   ...   from file:   SafeMath.sol
  * @dev Math operations with safety checks that throw on error
  */
 library SafeMath {
 
-  function sub(uint256 a, uint256 b) internal constant returns (uint256) {
-    if (b > a)
-        throw;
-    return a - b;
+  /**
+  * @dev Subtracts two numbers, throws on overflow (i.e. if subtrahend is greater than minuend).
+  */
+  function sub(uint256 _a, uint256 _b) internal pure returns (uint256) {
+    assert(_b <= _a);
+    return _a - _b;
   }
 
-  function add(uint256 a, uint256 b) internal constant returns (uint256) {
-    uint256 c = a + b;
-    if (c < a)
-        throw;
+  /**
+  * @dev Adds two numbers, throws on overflow.
+  */
+  function add(uint256 _a, uint256 _b) internal pure returns (uint256 c) {
+    c = _a + _b;
+    assert(c >= _a);
     return c;
   }
 }
